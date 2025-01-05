@@ -1,0 +1,79 @@
+요청파일 생성. 
+import React, { useState, useEffect } from 'react';
+
+function TestGiSang() {
+    const [weatherData, setWeatherData] = useState(null);
+
+    useEffect(() => {
+        const fetchWeatherData = async () => {
+            try {
+                // 기상청 API 엔드포인트 (실제 API 키와 URL로 교체 필요)
+                const response = await fetch('기상청_API_URL', {
+                    headers: {
+                        'Authorization': '당신의_API_키'
+                    }
+                });
+                const data = await response.json();
+                setWeatherData(data);
+            } catch (error) {
+                console.error('날씨 데이터 가져오기 실패:', error);
+            }
+        };
+
+        fetchWeatherData();
+    }, []);
+
+    return (
+        <div>
+            <h2>기상청 날씨 정보</h2>
+            {weatherData ? (
+                <div>
+                    <p>최고기온: {weatherData.TMX}°C</p>
+                    <p>최저기온: {weatherData.TMN}°C</p>
+                    <p>강수량: {weatherData.RN1}mm</p>
+                    {/* 필요한 다른 날씨 정보들 추가 */}
+                </div>
+            ) : (
+                <p>데이터를 불러오는 중...</p>
+            )}
+        </div>
+    );
+}
+
+export default TestGiSang;
+
+2. 출력 페이지 라우팅 설정
+
+3. 라우팅 패키지,  npm install web-vitals 패키지 설ㅇ치
+
+
+https://www.data.go.kr/data/15084084/openapi.do
+공공데이터 요청
+상세설명? 파일 다운로드 필요함(격자 위치)
+
+본인 인증 키값,제공 API 앤드포인트 이용하여 원하는정보\
+
+
+url에 각 데이터별 설정값이 들어가고.
+이미지 관련 패키지 설치. 머테리얼 UI + 날씨 아이콘
+npm install @mui/material @mui/icons-material @emotion/react @emotion/styled
+# 또는 날씨 아이콘 라이브러리 사용시
+npm install weather-icons-react
+
+
+완료. 주석 확인 하고. 산 위치값만 넣어주고 형식 맞추면 최저, 최대, 강수, 그에 맞는 날씨 출력
+
+기상청 개발자 페이지에서 제공하는 격자 좌표 엑셀 파일
+기상청 좌표 변환 서비스 (https://www.weather.go.kr/weather/forecast/digital_forecast.jsp)
+기상청 API 문서의 격자 좌표 조회 서비스
+예를 들어, 현재 코드에서 사용한 좌표는:
+
+const mountains = {
+    설악산: { nx: 89, ny: 131 },  // 설악산 지역 인근 강원도 속초시 좌표
+    북한산: { nx: 61, ny: 127 },  // 북한산 지역 인근 서울시 도봉구 좌표
+    지리산: { nx: 67, ny: 86 },   // 지리산 지역 인근 경남 산청군 좌표
+    한라산: { nx: 52, ny: 38 }    // 한라산 지역 인근 제주도 서귀포시 좌표
+};
+
+산 정상이나 주요 지점과 가장 가까운 격자점의 좌표를 사용.
+엑셀 파일에 위치별 격자 정보 있음

@@ -1,0 +1,64 @@
+.kakao-map-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  width: 100%;
+}
+
+.search-input {
+  padding: 10px;
+  width: 300px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-results {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+.search-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.search-item:hover {
+  background-color: #f0f0f0;
+}
+
+.toggle-list {
+  margin-top: 20px;
+}
+
+.toggle-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  width: 300px;
+}
+
+.toggle-item button {
+  padding: 5px 10px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.toggle-item button:hover {
+  background-color: #ff4c4c;
+}
+
+.map {
+  width: 1800px;  /* 너비 확대 */
+  height: 1800px; /* 높이 확대 */
+  margin-top: 20px;
+}
